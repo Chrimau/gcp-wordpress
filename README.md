@@ -23,7 +23,7 @@ Create the following files:
 
 3. (Optional) ngrok.yml
 
-then initialize git to track your project
+I recommend initializing git to track your project
 <pre> bash
   
 git init
