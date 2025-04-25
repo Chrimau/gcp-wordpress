@@ -150,38 +150,40 @@ gcloud projects create wordpress-docker --set-as-default </pre>
   
   gcloud services enable compute.googleapis.com container.googleapis.com </pre>
 
+
 4. Set Up GCP Deployment (use option A or B)
 
 Option A: Compute Engine (VM)
 
-<pre> bash
-  
-  scp -r . your-user@your-vm-ip:~/wordpress-docker-setup
+<pre>```bash
+
+scp -r . your-user@your-vm-ip:~/wordpress-docker-setup
 ssh your-user@your-vm-ip
 cd wordpress-docker-setup && docker-compose up -d </pre>
 
 Option B: Google Kubernetes Engine (GKE)
 
 1. Create a GKE cluster
-  <pre< bash
-
- gcloud container clusters create wordpress-cluster --num-nodes=1 --zone=us-central1-a </pre>
    
-3. Get cluster credentials:
-   <pre> bash 
+   <pre> ```bash
+     gcloud container clusters create wordpress-cluster --num-nodes=1 --zone=us-central1-a ```</pre>
+   
+2. Get cluster credentials:
+   
+   <pre> ```bash
+     gcloud container clusters get-credentials wordpress-cluster --zone=us-central1-a ```</pre>
+
+3. Push Docker image to Google Container Registry:
+   
+   <pre> ```bash
      
-     gcloud container clusters get-credentials wordpress-cluster --zone=us-central1-a </pre>
+  docker tag wordpress gcr.io/your-project-id/wordpress
+   docker push gcr.io/your-project-id/wordpress ```</pre>
 
-4. Push Docker image to Google Container Registry:
-  <pre> bash
-    
-    docker tag wordpress gcr.io/your-project-id/wordpress
-   docker push gcr.io/your-project-id/wordpress </pre>
-
-5. Create Kubernetes deployment and service for WordPress:
+4. Create Kubernetes deployment and service for WordPress:
   wordpress-deployment.yml
 
-<pre> yaml
+<pre> ```yaml
   
   apiVersion: apps/v1
 kind: Deployment
@@ -205,7 +207,7 @@ spec:
         
  wordpress-service.yml
 
-<pre> yaml
+<pre> ```yaml
   
   apiVersion: v1
 kind: Service
@@ -218,13 +220,14 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 80 </pre>
+      targetPort: 80 ```</pre>
 
 5. Apply Kubernetes configurations:
-   <pre> bash
    
-  kubectl apply -f wordpress-deployment.yml
-  kubectl apply -f wordpress-service.yml </pre>
+  <pre> ```bash 
+    
+ kubectl apply -f wordpress-deployment.yml
+ kubectl apply -f wordpress-service.yml ```</pre>
 
 You will receive an external IP for accessing your site once the service is ready.
 
