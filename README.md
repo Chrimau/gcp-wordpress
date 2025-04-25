@@ -12,6 +12,7 @@ Note: docker compose comes bundled with docker.
 
 # 🗂️ Step 1: Project Setup
 <pre> bash
+  
   mkdir wordpress-docker-setup && cd wordpress-docker-setup </pre>
 
 Create the following files:
@@ -24,18 +25,22 @@ Create the following files:
 
 then initialize git to track your project
 <pre> bash
+  
 git init
 git add .    #the . adds all files in that folder
 git commit -m "initial commit" </pre>
 
 go to github and create an empty repository, then copy the repo url and connect it to your local project.
-<pre> git remote add origin https://github.com/Chrimau/wordpress-docker/
+<pre> bash
+
+git remote add origin https://github.com/Chrimau/wordpress-docker/
 git push -u origin main </pre>
 
 # 🐳 Step 2: Docker Compose Configuration
 open the docker-compose.yml using vs code or your nano editor (code docker-compose.yml or nano docker-compose.yml), its not necessary to declare version if using docker 27.01 or later:
 
 <pre> yaml
+  
   version: '3.8'
 
 services:
@@ -79,6 +84,7 @@ volumes:
 
 ## 🔐 Step 3: Configure Environment Variables
 <pre> env
+  
 MYSQL_DATABASE=wordpress
 MYSQL_USER=wp_user
 MYSQL_PASSWORD=secretpassword
@@ -88,6 +94,7 @@ MYSQL_ROOT_PASSWORD=rootpassword``` </pre>
 ngrok.yml
 
 <pre> yaml
+  
   authtoken: YOUR_NGROK_AUTHTOKEN
 tunnels:
   wordpress:
@@ -105,6 +112,7 @@ tunnels:
 
 Install mkcert and create certificates
 <pre> bash
+  
 brew install mkcert
 mkcert -install
 mkcert localhost </pre>
@@ -114,10 +122,12 @@ Update docker-compose.yml to include a reverse proxy like Nginx with mounted cer
 # ☁️ Step 6: Deploy to Google Cloud Platform (GCP)
 Make sure Docker is running, then build and start the services:
 <pre> bash
+  
   docker-compose up -d --build </pre>
 
   To stop everything later:
 <pre> bash
+  
 docker-compose down </pre>
 
 # ☁️ Step 7: Deploy to Google Cloud Platform (GCP)
@@ -128,12 +138,14 @@ Follow: https://cloud.google.com/sdk/docs/install
 2. Authenticate and Create a Project
 
 <pre> bash
+  
   gcloud auth login
 gcloud projects create wordpress-docker --set-as-default </pre>
 
 3. Enable Required APIs
 
 <pre> bash
+  
   gcloud services enable compute.googleapis.com container.googleapis.com </pre>
 
 4. Set Up GCP Deployment (use option A or B)
@@ -141,6 +153,7 @@ gcloud projects create wordpress-docker --set-as-default </pre>
 Option A: Compute Engine (VM)
 
 <pre> bash
+  
   scp -r . your-user@your-vm-ip:~/wordpress-docker-setup
 ssh your-user@your-vm-ip
 cd wordpress-docker-setup && docker-compose up -d </pre>
@@ -149,14 +162,17 @@ Option B: Google Kubernetes Engine (GKE)
 
 1. Create a GKE cluster
   <pre< bash
+
  gcloud container clusters create wordpress-cluster --num-nodes=1 --zone=us-central1-a </pre>
    
 3. Get cluster credentials:
    <pre> bash 
+     
      gcloud container clusters get-credentials wordpress-cluster --zone=us-central1-a </pre>
 
 4. Push Docker image to Google Container Registry:
   <pre> bash
+    
     docker tag wordpress gcr.io/your-project-id/wordpress
    docker push gcr.io/your-project-id/wordpress </pre>
 
@@ -164,6 +180,7 @@ Option B: Google Kubernetes Engine (GKE)
   wordpress-deployment.yml
 
 <pre> yaml
+  
   apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -187,6 +204,7 @@ spec:
  wordpress-service.yml
 
 <pre> yaml
+  
   apiVersion: v1
 kind: Service
 metadata:
@@ -202,6 +220,7 @@ spec:
 
 5. Apply Kubernetes configurations:
    <pre> bash
+   
   kubectl apply -f wordpress-deployment.yml
   kubectl apply -f wordpress-service.yml </pre>
 
