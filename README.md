@@ -170,15 +170,15 @@ Option B: Google Kubernetes Engine (GKE)
    
 2. Get cluster credentials:
    
-   <pre> ```bash
-     gcloud container clusters get-credentials wordpress-cluster --zone=us-central1-a ```</pre>
+   <pre> bash
+     gcloud container clusters get-credentials wordpress-cluster --zone=us-central1-a </pre>
 
 3. Push Docker image to Google Container Registry:
    
-   <pre> ```bash
+   <pre> bash
      
   docker tag wordpress gcr.io/your-project-id/wordpress
-   docker push gcr.io/your-project-id/wordpress ```</pre>
+  docker push gcr.io/your-project-id/wordpress </pre>
 
 4. Create Kubernetes deployment and service for WordPress:
   wordpress-deployment.yml
