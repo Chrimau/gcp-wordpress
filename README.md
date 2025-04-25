@@ -3,10 +3,10 @@ Welcome to this beginner-friendly guide! Here you’ll learn how to dockerize a 
 
 # Prerequisites
 
-Docker and Docker Compose installed. (sudo apt update && sudo apt install docker.io) or [Install Docker Guide](https://docs.docker.com/get-docker/)
-GCP account (https://cloud.google.com)
-NGROK account (optional for secure local exposure) at [free tier account](https://dashboard.ngrok.com/signup)
-A domain name (recommended for SSL setup)
+1. Docker and Docker Compose installed. (sudo apt update && sudo apt install docker.io) or [Install Docker Guide](https://docs.docker.com/get-docker/)
+2. GCP account (https://cloud.google.com)
+3. NGROK account (optional for secure local exposure) at [free tier account](https://dashboard.ngrok.com/signup)
+4. A domain name (recommended for SSL setup)
 
 Note: docker compose comes bundled with docker.
 
