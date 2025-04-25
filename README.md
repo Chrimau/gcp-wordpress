@@ -76,11 +76,11 @@ volumes:
   db_data:
 
 ## 🔐 Step 3: Configure Environment Variables
-.env file
+<pre> ```env
 MYSQL_DATABASE=wordpress
 MYSQL_USER=wp_user
 MYSQL_PASSWORD=secretpassword
-MYSQL_ROOT_PASSWORD=rootpassword
+MYSQL_ROOT_PASSWORD=rootpassword``` </pre>
 
 # 🌐 Step 4: (Optional) Expose with NGROK
 ngrok.yml
