@@ -104,8 +104,10 @@ tunnels:
     proto: http
     addr: 8080 </pre>
 
-    Start NGROK:
+  Start NGROK:
+    
    <pre> yaml
+     
      ngrok start --all --config=ngrok.yml </pre>
      
   # 🔒 Step 5: Enable Local SSL with mkcert (Optional)
