@@ -145,13 +145,11 @@ Follow: https://cloud.google.com/sdk/docs/install
 gcloud projects create wordpress-docker --set-as-default </pre>
 
 3. Enable Required APIs
-
-<pre> bash
-  
-  gcloud services enable compute.googleapis.com container.googleapis.com </pre>
+<pre>
+gcloud services enable compute.googleapis.com container.googleapis.com </pre>
 
 
-4. Set Up GCP Deployment (use option A or B)
+5. Set Up GCP Deployment (use option A or B)
 
 Option A: Compute Engine (VM)
 
