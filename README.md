@@ -175,7 +175,7 @@ Option B: Google Kubernetes Engine (GKE)
 
 3. Push Docker image to Google Container Registry:
    
-   <pre> bash
+   <pre>
   docker tag wordpress gcr.io/your-project-id/wordpress
   docker push gcr.io/your-project-id/wordpress </pre>
 
