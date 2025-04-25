@@ -144,7 +144,7 @@ Follow: https://cloud.google.com/sdk/docs/install
   gcloud auth login
 gcloud projects create wordpress-docker --set-as-default </pre>
 
-3. Enable Required APIs
+3. Enable Required APIs (not showing because its a secret)
 <pre>
 gcloud services enable compute.googleapis.com container.googleapis.com </pre>
 
