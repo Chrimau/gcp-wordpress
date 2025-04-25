@@ -1,5 +1,5 @@
 ## 📘 Dockerize WordPress with phpMyAdmin, NGROK, SSL, and GCP Deployment
-Welcome to this beginner-friendly guide! Here you’ll learn how to dockerize a WordPress website, add phpMyAdmin, optionally expose your site securely using NGROK, enable local SSL, and deploy everything to Google Cloud Platform (GCP).
+Looking to show off your DevOps and cloud skills in a real-world project? This hands-on guide walks you through containerizing a WordPress site using Docker and Docker Compose, integrating phpMyAdmin, setting up secure access with NGROK and SSL, and deploying the full stack to Google Cloud Platform (GCP). Whether you're prepping for a job or building your portfolio, this step-by-step tutorial is designed to help you confidently demonstrate practical DevOps knowledge with modern tooling.
 
 # Prerequisites
 
@@ -183,7 +183,7 @@ Option B: Google Kubernetes Engine (GKE)
 4. Create Kubernetes deployment and service for WordPress:
   wordpress-deployment.yml
 
-<pre> ```yaml
+<pre> yaml
   
   apiVersion: apps/v1
 kind: Deployment
@@ -207,7 +207,7 @@ spec:
         
  wordpress-service.yml
 
-<pre> ```yaml
+<pre> yaml
   
   apiVersion: v1
 kind: Service
@@ -227,7 +227,7 @@ spec:
   <pre> ```bash 
     
  kubectl apply -f wordpress-deployment.yml
- kubectl apply -f wordpress-service.yml ```</pre>
+ kubectl apply -f wordpress-service.yml </pre>
 
 You will receive an external IP for accessing your site once the service is ready.
 
