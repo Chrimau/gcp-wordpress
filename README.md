@@ -121,7 +121,7 @@ mkcert localhost </pre>
 
 Update docker-compose.yml to include a reverse proxy like Nginx with mounted certs or use Caddy/Traefik for easier SSL setup.
 
-# ☁️ Step 6: Deploy to Google Cloud Platform (GCP)
+# ☁️ Step 6: Start up Docker
 Make sure Docker is running, then build and start the services:
 <pre> bash
   
