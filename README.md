@@ -24,11 +24,11 @@ Create the following files:
 3. (Optional) ngrok.yml
 
 I recommend initializing git to track your project
-<pre> bash
-  
+```
 git init
 git add .    #the . adds all files in that folder
-git commit -m "initial commit" </pre>
+git commit -m "initial commit"
+```
 
 go to github and create an empty repository, then copy the repo url and connect it to your local project.
 <pre> bash
